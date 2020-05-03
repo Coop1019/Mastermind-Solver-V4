@@ -1,9 +1,26 @@
 #include <iostream>
 #include <vector>
 
+// Written by Cooper LeComp, 3 May 2020
+
+/*
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 void createGuesses(int allVals[1296][4]);
-int getReds(int allVals[1296][4], int answer[4], int guess);
-int getWhites(int allVals[1296][4], int answer[4], int guess);
+int getReds(int allVals[1296][4], const int answer[4], int guess);
+int getWhites(int allVals[1296][4], const int answer[4], int guess);
 
 int main()
 {
@@ -85,7 +102,7 @@ void createGuesses(int allVals[1296][4])
     }
 }
 
-int getReds(int allVals[1296][4], int answer[4], int guess)
+int getReds(int allVals[1296][4], const int answer[4], int guess)
 {
     int reds = 0;
     for (int i = 0; i < 4; i++)
@@ -95,31 +112,19 @@ int getReds(int allVals[1296][4], int answer[4], int guess)
     }
     return reds;
 }
-int getWhites(int allVals[1296][4], int answer[4], int guess)
+int getWhites(int allVals[1296][4], const int answer[4], int guess)
 {
     int takenAns[4] = {};
     int takenGuess[4] = {};
     int whites = 0;
 
-    if (allVals[guess][0] == answer[0])
+    for (int i = 0; i < 3; i++)
     {
-        takenAns[0] = 1;
-        takenGuess[0] = 1;
-    }
-    if (allVals[guess][1] == answer[1])
-    {
-        takenAns[1] = 1;
-        takenGuess[1] = 1;
-    }
-    if (allVals[guess][2] == answer[2])
-    {
-        takenAns[2] = 1;
-        takenGuess[2] = 1;
-    }
-    if (allVals[guess][3] == answer[3])
-    {
-        takenAns[3] = 1;
-        takenGuess[3] = 1;
+        if (allVals[guess][i] == answer[i])
+        {
+            takenAns[i] = 1;
+            takenGuess[i] = 1;
+        }
     }
 
 
