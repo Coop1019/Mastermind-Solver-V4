@@ -79,6 +79,7 @@ void createGuesses(int allVals[1296][4])
         allVals[i][0] = (i / 216) % 6 + 1;
     }
 }
+
 int getReds(int allVals[1296][4], const int answer[4], int guess)
 {
     int reds = 0;
@@ -89,6 +90,7 @@ int getReds(int allVals[1296][4], const int answer[4], int guess)
     }
     return reds;
 }
+
 int getWhites(int allVals[1296][4], const int answer[4], int guess)
 {
     int takenAns[4] = {};
