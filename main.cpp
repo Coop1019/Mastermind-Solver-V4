@@ -205,4 +205,3 @@ int getWhites(int allVals[1296][4], const int answer[4], int guess)
     }
     return whites;
 }
- 
